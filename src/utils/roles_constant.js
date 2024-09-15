@@ -1,5 +1,5 @@
 const ROLES = {
-    SUPERADMIN: 'uperAdmin',
+    SUPERADMIN: 'superAdmin',
     ADMIN: 'admin',
     USER: 'user'
 }
