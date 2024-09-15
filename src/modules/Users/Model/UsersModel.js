@@ -31,11 +31,17 @@ const User = sequelize.define('User', {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: 0
+    },
+    role_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: Role,
+            key: 'id'
+        }
     }
 }, {
     timestamps: true,
 });
-
-User.belongsTo(Role, { foreignKey: 'role_id' });
 
 module.exports = User;

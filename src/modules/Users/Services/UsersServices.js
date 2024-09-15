@@ -1,6 +1,6 @@
 const User = require('../Model/UsersModel');
 
-const createUser = async (userData) => {
+const createUser = async (userData) => {  
     return await User.create(userData);
 };
 

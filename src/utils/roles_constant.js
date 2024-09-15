@@ -1,7 +1,7 @@
 const ROLES = {
-    SUPERADMIN: 'SuperAdmin',
-    ADMIN: 'Admin',
-    USER: 'User'
+    SUPERADMIN: 'uperAdmin',
+    ADMIN: 'admin',
+    USER: 'user'
 }
 
 module.export = ROLES

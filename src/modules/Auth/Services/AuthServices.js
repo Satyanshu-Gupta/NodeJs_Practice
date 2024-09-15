@@ -10,6 +10,7 @@ exports.registerUser = async (userData) => {
         username: userData.username,
         email: userData.email,
         password: hashedPassword,
+        role_id: userData.role_id
     });
 
     return user;

@@ -1,9 +1,8 @@
-// models/role.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../../config/database');
 
 const Role = sequelize.define('Roles', {
-    role_id: {
+    id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -13,6 +12,9 @@ const Role = sequelize.define('Roles', {
         unique: true,
         allowNull: false
     }
+}, {
+    timestamps: true,
 });
+
 
 module.exports = Role;
