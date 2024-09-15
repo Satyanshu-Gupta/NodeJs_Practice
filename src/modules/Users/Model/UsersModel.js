@@ -4,10 +4,10 @@ const Role = require('../../Roles/Model/RolesModel');
 
 const User = sequelize.define('User', {
     id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
+        type: DataTypes.UUID,
         primaryKey: true,
-        allowNull: false
+        allowNull: false,
+        defaultValue: DataTypes.UUIDV4
     },
     name: {
         type: DataTypes.STRING,
@@ -32,16 +32,21 @@ const User = sequelize.define('User', {
         allowNull: false,
         defaultValue: 0
     },
-    role_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: Role,
-            key: 'id'
-        }
-    }
+    createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+        allowNull: false
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+        allowNull: false
+      }
 }, {
     timestamps: true,
 });
+
+
+User.belongsTo(Role, { foreignKey: 'role_id' });
 
 module.exports = User;

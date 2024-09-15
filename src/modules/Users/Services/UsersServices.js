@@ -1,12 +1,19 @@
+const Role = require('../../Roles/Model/RolesModel');
 const User = require('../Model/UsersModel');
 
-const createUser = async (userData) => {  
+const createUser = async (userData) => {
     return await User.create(userData);
 };
 
 const getAllUsers = async () => {
     return await User.findAll({
-        attributes: { exclude: ['password'] },
+        attributes: {
+            exclude: ['password', 'role_id'],
+        },
+        include: {
+            model: Role,
+            attributes: ['id', 'role_name']
+        }
     });
 };
 

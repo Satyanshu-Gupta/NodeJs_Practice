@@ -11,7 +11,17 @@ const Role = sequelize.define('Roles', {
         type: DataTypes.STRING(55),
         unique: true,
         allowNull: false
-    }
+    },
+    createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+        allowNull: false
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+        allowNull: false
+      }
 }, {
     timestamps: true,
 });

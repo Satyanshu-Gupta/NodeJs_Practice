@@ -1,5 +1,5 @@
 const authorizeRole = (role) => (req, res, next) => {
-    if (req.user.Role.role_name !== role) return res.sendStatus(403);
+    if (req.user?.roleName !== role) return res.status(403).json({ message: 'You are not authorized to access.' });
     next();
 };
 
