@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const sequelize = require('./src/config/database');
+const corsConfig = require('./src/config/cors');
 // const userRoutes = require('./src/routes/userRoutes');
 
 
 const app = express();
 
+app.use(corsConfig);
 
 // const globalMiddlewares = require('./src/middlewares');
 // globalMiddlewares.forEach(middleware => app.use(middleware));
@@ -28,7 +30,7 @@ sequelize.sync(
 ).then(() => {
     console.log('Database Connected!');
 }).catch((error) => {
-    console.error('Error syncing database: ', error);
+    console.error('Error connecting database: ', error);
 });
 
 const PORT = process.env.SERVER_PORT;
