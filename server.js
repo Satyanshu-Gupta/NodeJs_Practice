@@ -1,8 +1,8 @@
 require('module-alias/register');
 const express = require('express');
 const bodyParser = require('body-parser');
-const sequelize = require('@/config/database');
-const corsConfig = require('@/config/cors');
+const sequelize = require('@config/database');
+const corsConfig = require('@config/cors');
 // const userRoutes = require('@routes/userRoutes');
 
 
