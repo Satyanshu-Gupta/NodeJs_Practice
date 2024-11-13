@@ -1,8 +1,8 @@
 require('dotenv').config();
-const User = require('../../Users/Model/UsersModel');
+const User = require('@modules/Users/Model/UsersModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const Role = require('../../Roles/Model/RolesModel');
+const Role = require('@modules/Roles/Model/RolesModel');
 
 const JWT_SECRET = process.env.JWT_SECRET;
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN;

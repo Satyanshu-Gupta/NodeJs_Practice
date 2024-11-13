@@ -1,4 +1,4 @@
-const User = require('../../Users/Model/UsersModel');
+const User = require('@modules/Users/Model/UsersModel');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 

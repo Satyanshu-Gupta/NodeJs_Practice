@@ -1,8 +1,9 @@
+require('module-alias/register');
 const express = require('express');
 const bodyParser = require('body-parser');
-const sequelize = require('./src/config/database');
-const corsConfig = require('./src/config/cors');
-// const userRoutes = require('./src/routes/userRoutes');
+const sequelize = require('@/config/database');
+const corsConfig = require('@/config/cors');
+// const userRoutes = require('@routes/userRoutes');
 
 
 const app = express();
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json()); // For parsing application/json
 
 // Import and use routes
-const routes = require('./src/routes');
+const routes = require('@/routes');
 app.use('/', routes);
 
 // Sync models with database
