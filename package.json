@@ -19,6 +19,7 @@
     "module-alias": "^2.2.3",
     "mysql2": "^3.11.0",
     "nodemon": "^3.1.4",
+    "redis": "^4.7.0",
     "sequelize": "^6.37.3"
   },
   "_moduleAliases": {
@@ -26,6 +27,8 @@
     "@config": "src/config",
     "@modules": "src/modules",
     "@middlewares": "src/middlewares",
-    "@utils": "src/utils"
+    "@utils": "src/utils",
+    "@routes": "src/routes",
+    "@services": "src/services"
   }
 }

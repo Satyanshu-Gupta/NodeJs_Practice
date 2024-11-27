@@ -1,0 +1,50 @@
+services:
+  # Redis service
+  redis:
+    image: "redis:4"
+    container_name: redis
+    ports:
+      - "6379:6379"  # Expose Redis port to the host
+
+  # MySQL service
+  mysql:
+    image: mysql:9
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password@123  # Set the root password for MySQL
+      MYSQL_DATABASE: testDb  # Name of the database to create
+      MYSQL_USER: admin  # Username for MySQL
+      MYSQL_PASSWORD: password@123  # Password for the MySQL user
+    ports:
+      - "3307:3306"  # Expose MySQL port to the host
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persist data between container restarts
+
+  # Express.js app service
+  # app:
+  #   build:
+  #     context: .  # Dockerfile is in the current directory
+  #   container_name: express-app
+  #   ports:
+  #     - "8080:8080"  # Expose the app on port 8080
+  #   depends_on:
+  #     - redis  # Wait for Redis to be ready before starting the app
+  #     - mysql  # Wait for MySQL to be ready before starting the app
+  #   environment:
+  #     - REDIS_HOST=redis
+  #     - REDIS_PORT=6379
+  #     - MYSQL_HOST=mysql
+  #     - MYSQL_PORT=3306
+  #     - MYSQL_USER=admin
+  #     - MYSQL_PASSWORD=password@123
+  #     - MYSQL_DB=testDb
+  #   networks:
+  #     - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local
