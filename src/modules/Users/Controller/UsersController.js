@@ -39,6 +39,7 @@ const updateUser = async (req, res) => {
     try {
         const user = await UsersServices.updateUser(req.params.id, req.body);
         if (user) {
+            deleteFromCache('/api/users'+ ":" + req?._parsedUrl?.query)
             res.status(200).json(user);
         } else {
             res.status(404).json({ error: 'User not found' });
