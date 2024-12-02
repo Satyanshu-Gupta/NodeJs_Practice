@@ -1,6 +1,15 @@
-﻿# NodeJs Practice
+﻿# Node.js Practice
 
-Run command `docker-compose up --build`
+## Steps to Set Up
+
+### Step 1: Set Up MySQL Database
+Create a MySQL database named `testDb` on **PORT 3307**. You can do this manually or use Docker for easier setup.
+
+### Step 2: Run the Application
+To start the application, use the following command:
+
+`docker-compose up --build`
+
 
 # Implemented features
   1. **Node with Express**
